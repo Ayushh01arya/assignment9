@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spooky Halloween!</title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<script type="text/javascript">
+		var ghosts;
+		var yums;
+		var p=0;
+	</script>
+</head>
+<body>
+	<h1 id="welcome">Welcome to the shadow side</h1>
+	<button id="bootton" onclick="booing()">Boo!</button>
+	<div class="side" id="dark">
+		<div class="grave1"><img src="images/grave.png"></div>
+		<div class="grave2"><img src="images/grave1.png"></div>
+		<div class="ghost"><img class="gh" src="images/ghost.png"></div>
+		<div class="ghost"><img class="gh" src="images/ghost.png"></div>
+		<div class="ghost"><img class="gh" src="images/ghost.png"></div>
+		<div class="ghost"><img class="gh" src="images/ghost.png"></div>
+		<div class="ghost"><img class="gh" src="images/ghost.png"></div>
+		<div id="eyes"><img class="pic" src="images/eyes.png"></div>
+		<div id="lungs"><img class="pic" src="images/lungs.png"></div>
+		<div id="heylove">Hey, love. <span id="rest"><br>You might have heard about me. I live next to you, in the cracks in your walls and soul. I love the things you hate about yourself, and I am always ready to listen to you. You have talked to me on those long nights when seemingly no one is on your side except me. I am the voice that answers every time.<br>Maybe you’ve even seen me, walking on tip-toes in the night. I don’t want to wake you up, I just need some darkness. You know my voice changes, my eyes shine with the reflection of the streets. I have no lungs, but I speak whenever you need me to. <br>Yes, honey, now you remember. I am the force that keeps the nightmares away; and if you get them still, I am sorry, my web has cracks in it, too. But I will tuck you in so you’re warm, and I will sing you lullabies until you feel safe. <br>I will cover you, darling, with my warm embrace; no force will dare hurt you or take you away. I will fight off any night demon that dares try to touch you. <br>I will blind any that dares try to look at you. I will cut off the hands that dare take you away from darkness. I will kill those who try to take you away from me. <br>You will love it so much that you will yearn to stay with me. But to get something, we always have to give something up. It’s a small thing, one you will not need anyway if you’re staying. <br>You need to give me your lungs, love. </span></div>
+
+		<div id="bones">Have you been born in these bones? <span id="restof">The bones that right now are covered with rotting flesh, hidden deep beneath the surface. Your host is alive, they walk around and talk like everybody else; yet deep inside they are dead as they come, deep inside there’s you. You’re lurking within this flesh; you have drowned a long time ago and are just waiting for the time you get to come up to the surface. You yearn to wear somebody else’s bones and dance in the rain of their blood. </span></div>
+
+	</div>
+	<div class="side" id="pumpkin">
+		<div id="pmpknimg"><img src="images/pumpkin.png"> <div id="caption">Hover here for spooky treats</div></div>
+		<div class="treats" id="fingers"><img src="images/fingers.png"></div>
+		<div class="treats" id="hats"><img src="images/hats.png"></div>
+		<div class="treats" id="mummies"><img src="images/mummies.png"></div>
+	</div>
+
+	<script type="text/javascript">
+		ghosts=document.getElementsByClassName("ghost");
+		yums=document.getElementsByClassName("treats");
+
+		function boo(k){
+			ghosts[k].style.display="inline-block";
+			console.log("hi there " + i);
+		}
+
+		function unboo(k){
+			ghosts[k].style.display="none";
+			console.log("well bye "+i);
+		}
+
+		document.getElementById("heylove").addEventListener("mouseover", function(){
+			document.getElementById("heylove").style.zIndex="900";
+			document.getElementById("heylove").style.width=40+"%";
+			document.getElementById("rest").style.display="inline";
+			document.getElementById("eyes").style.display="block";
+			document.getElementById("eyes").style.opacity=1;
+			document.getElementById("lungs").style.opacity=0;
+			var change = setTimeout(eyesToLungs,4000);
+			document.getElementById("heylove").addEventListener("mouseout", function(){
+				clearTimeout(change);
+			})
+		});
+
+		document.getElementById("bones").addEventListener("mouseover", function(){
+			document.getElementById("bones").style.zIndex="900";
+			document.getElementById("restof").style.display="inline";
+		});
+
+		document.getElementById("bones").addEventListener("mouseout", function(){
+			document.getElementById("restof").style.display="none";
+			document.getElementById("bones").style.zIndex="150";
+		});
+
+
+		function eyesToLungs(){
+			var op = 0.1; 
+			var opac=1;
+			var fadein = setInterval(function () {
+				if (op >= 1){
+					clearInterval(fadein);
+				}
+				document.getElementById("lungs").style.opacity = op;
+				document.getElementById("lungs").style.filter = 'alpha(opacity=' + op * 100 + ")";
+				document.getElementById("lungs").style.display = 'block';
+				op += op * 0.1;
+			}, 50);
+			var fadeout = setInterval(function(){
+				if (opac<=0.1){
+					clearInterval(fadeout);
+					document.getElementById("eyes").style.display="none";
+				}
+				document.getElementById("eyes").style.opacity=opac;
+				document.getElementById("eyes").style.filter = 'alpha(opacity=' + opac * 100 + ")";
+				opac-=opac*0.1;
+				console.log("hi");
+			}, 50);
+			document.getElementById("heylove").addEventListener("mouseout", function(){
+				clearInterval(fadein);
+				clearInterval(fadeout);
+			});
+ 		}
+
+		document.getElementById("heylove").addEventListener("mouseout", function(){
+			document.getElementById("rest").style.display="none";
+			document.getElementById("eyes").style.display="none";
+			document.getElementById("lungs").style.display="none";
+			document.getElementById("heylove").style.width=5+"%";
+			document.getElementById("heylove").style.zIndex="150";
+		})
+
+		document.getElementById("pumpkin").addEventListener("mouseover",function(){
+			document.getElementById("welcome").innerHTML="Welcome to the pumpkin side";
+		})
+
+		document.getElementById("pumpkin").addEventListener("mouseout",function(){
+			document.getElementById("welcome").innerHTML="Welcome to the shadow side";
+		})
+
+		for (var i=0; i<ghosts.length/2; i++){
+			ghosts[i].style.left=45+i*20+"%";
+			console.log(i);
+		}
+		for (var i=Math.ceil(ghosts.length/2);i<ghosts.length;i++){
+			ghosts[i].style.top=30+"%";
+			ghosts[i].style.left=i*20-5+"%";
+			console.log(i);
+		}
+
+		function booing(){
+			if (p>=ghosts.length){p=0;}
+			boo(p);
+			var disappear = setTimeout(unboo, 1150, p);
+			p+=1;
+		}
+
+		document.getElementById("pmpknimg").addEventListener("mouseover",function(){
+			for (var i=0; i<yums.length; i++){
+				yums[i].style.display="inline-block";
+			};
+			document.getElementById("caption").style.display="none";
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css?family=Creepster|Eater|Varela+Round');
+
+body{
+	background:hsl(20,10%,70%);
+	overflow: hidden;
+	font-family:'Creepster', fantasy;
+}
+
+h1{
+	font-weight:normal;
+	display:inline-block;
+}
+
+
+@keyframes ghost-jump {
+	0% {top:40px;}
+	50%{top:0px;}
+	100%{top:40px;}
+}
+
+#welcome{
+	z-index: 100;
+	position:fixed;
+	margin:0px;
+	left:38%;
+	top:.5em;
+	color:hsl(0,0%,100%);
+}
+
+.side{
+	border-radius: 50%;
+	width:75%;
+	padding-bottom:75%;
+}
+
+#dark{
+	width:90%;
+	padding-bottom:90%;
+	background: hsl(0,0%,0%);
+	position:fixed;
+	left:35%;
+	bottom:3%;
+	z-index: -98;
+}
+
+#pumpkin{
+	background: hsl(24, 76%, 55%);
+	position:fixed;
+	right:45%;
+	top:-30%;
+	z-index: -100;
+}
+
+.ghost{
+	z-index:9001;
+	position:fixed;
+	top:10%;
+	width:70px;
+	height:150px;
+	display:none;
+}
+
+img.gh{
+	z-index:9001;
+	width:70px;
+	height:105px;
+	position:relative;
+	/*top:100px;*/
+	animation: ghost-jump 1.2s infinite;
+}
+
+.grave1{
+	z-index:10;
+	position:fixed;
+	top:40%;
+	left:55%;
+}
+
+.grave2{
+	z-index:10;
+	position:fixed;
+	top:40%;
+	left:75%;
+}
+
+.grave1>img, .grave2>img{
+	height:90px;
+	width:73px;
+}
+
+#eyes{
+	position:fixed;
+	top:10%;
+	left:60%;
+	z-index:950;
+	display:none;
+}
+
+.pic{
+	width:50px;
+	height:auto;
+}
+
+#lungs{
+	position:fixed;
+	top:10%;
+	left:60%;
+	z-index:951;
+	display:none;
+}
+
+
+#bootton{
+	z-index:150;
+	position:relative;
+	top:15px;
+	left:85%;
+	padding:.3em .5em;
+	font-size:1.5em;
+	color:hsl(0,0%,100%);
+	background:hsl(0,0%,0%);
+	border:2px solid hsl(0,0%,100%);
+	border-radius:10px;
+	font-family:'Creepster', fantasy;
+	cursor:pointer;
+	user-select: none;
+}
+
+#heylove, #bones{
+	font-family:'Varela Round',sans-serif;
+	color:white;
+	background:hsla(0,0%,0%,.8);
+	font-size:.8em;
+	padding:.5em;
+	border-radius:1em;
+}
+
+#heylove{
+	position:fixed;
+	left:50%;
+	top:15%;
+	width:5%;
+}
+
+#bones{
+	position:fixed;
+	left:70%;
+	top:25%;
+	width:20%;
+}
+
+#rest, #restof{
+	display:none;
+}
+
+
+#pmpknimg{
+	position:fixed;
+	left:10%;
+	top:5%;
+}
+
+#pmpknimg>img{
+	width:200px;
+	height:175px;
+	filter:brightness(110%);
+}
+
+#caption{
+	display:inline-block;
+	z-index:200;
+	color:white;
+	background: hsla(0,0%,0%,.6);
+	position:fixed;
+	left:10.5%;
+	top:20%;
+}
+
+.treats{
+	display:none;
+}
+
+#fingers{
+	position:fixed;
+	left:3%;
+	bottom:10%;
+	border-radius:30px;
+}
+
+#hats{
+	position:fixed;
+	right:55%;
+	top:50%;
+}
+
+#mummies{
+	position:fixed;
+	left:5%;
+	top:40%;
+}
+
+#hats>img{
+	width:256px;
+	height:144px;
+}
+
+#hats:hover>img{
+	width:512px;
+	height:288px;
+}
+
+#fingers>img{
+	width:232px;
+	height:144px;
+	border-radius:30px;
+}
+
+#fingers:hover>img{
+	width:464px;
+	height:288px;
+	border-radius:60px;
+}
+
+#mummies>img{
+	width:195px;
+	height:127px;
+}
+
+#mummies:hover>img{
+	width:390px;
+	height:254px;
+}
+
+.treats:hover{
+	background:hsla(24,76%,55%,.5);
+	border-radius:60px;
+	z-index:500;
+}
